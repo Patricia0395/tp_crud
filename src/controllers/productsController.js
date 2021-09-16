@@ -85,8 +85,9 @@ const controller = {
 	destroy : (req, res) => {
 		// Do the magic
 		let productsModified = products.filter(product => product.id !== +req.params.id);
-		fs.writeFileSync(path.join(__dirname, '..', 'data', 'productsDataBase.json'),JSON.stringify(products, null,3),'utf-8');
-		res.redirect('/products')
+		fs.writeFileSync(path.join(__dirname, '..', 'data', 'productsDataBase.json'),JSON.stringify(productsModified, null,3),'utf-8');
+		res.redirect('/products');
+
 	}
 };
 
